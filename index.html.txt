@@ -1,137 +1,123 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arduino Store</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f7f7f7;
-        }
+---
+layout: default
+---
 
-        .language-toggle {
-            margin-bottom: 20px;
-            text-align: center;
-        }
+Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-        .language-toggle button {
-            padding: 8px 15px;
-            margin: 0 5px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-        }
+[Link to another page](./another-page.html).
 
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
+There should be whitespace between paragraphs.
 
-        .product {
-            background-color: white;
-            border-radius: 12px;
-            padding: 15px;
-            width: 220px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-        }
+# Header 1
 
-        .product img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-        .product h2 {
-            font-size: 18px;
-            margin: 10px 0 5px;
-        }
+## Header 2
 
-        .product p {
-            font-size: 16px;
-            margin: 5px 0;
-        }
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
 
-        .order-button {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
+### Header 3
 
-        .order-button:hover {
-            background-color: #1ebe57;
-        }
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
+```
 
-        body.arabic {
-            direction: rtl;
-            text-align: right;
-        }
-    </style>
-</head>
-<body>
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
 
-    <div class="language-toggle">
-        <button onclick="setLanguage('fr')">Français</button>
-        <button onclick="setLanguage('ar')">العربية</button>
-    </div>
+#### Header 4
 
-    <div class="products">
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
 
-        <!-- Product 1: Arduino Uno -->
-        <div class="product">
-            <img src="images/Arduino Uno.jpg" alt="Arduino Uno">
-            <h2 class="product-name" data-fr="Arduino Uno" data-ar="أردوينو أونو">Arduino Uno</h2>
-            <p class="product-price" data-fr="Prix: 150 MAD" data-ar="السعر: 150 درهم">Prix: 150 MAD</p>
-            <a href="https://wa.me/212600000000?text=I%20want%20to%20order%20Arduino%20Uno" class="order-button" 
-               data-fr="Commander" data-ar="اطلب الآن">Commander</a>
-        </div>
+##### Header 5
 
-        <!-- Product 2: Arduino Nano -->
-        <div class="product">
-            <img src="images/Arduino Nano.jpg" alt="Arduino Nano">
-            <h2 class="product-name" data-fr="Arduino Nano" data-ar="أردوينو نانو">Arduino Nano</h2>
-            <p class="product-price" data-fr="Prix: 100 MAD" data-ar="السعر: 100 درهم">Prix: 100 MAD</p>
-            <a href="https://wa.me/212600000000?text=I%20want%20to%20order%20Arduino%20Nano" class="order-button" 
-               data-fr="Commander" data-ar="اطلب الآن">Commander</a>
-        </div>
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
 
-    </div>
+###### Header 6
 
-    <script>
-        function setLanguage(lang) {
-            const body = document.body;
-            if (lang === 'ar') {
-                body.classList.add('arabic');
-            } else {
-                body.classList.remove('arabic');
-            }
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
 
-            document.querySelectorAll('[data-fr]').forEach(el => {
-                el.textContent = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-fr');
-            });
-        }
-    </script>
+### There's a horizontal rule below this.
 
-</body>
-</html>
+* * *
+
+### Here is an unordered list:
+
+*   Item foo
+*   Item bar
+*   Item baz
+*   Item zip
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And a nested list:
+
+- level 1 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+
+### Small image
+
+![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
+
+### Large image
+
+![Branching](https://guides.github.com/activities/hello-world/branching.png)
+
+
+### Definition lists can be used with HTML syntax.
+
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
+
+```
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+```
+
+```
+The final element.
+```
