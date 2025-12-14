@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="language-toggle">
+        <button onclick="setLanguage('fr')">Français</button>
+        <button onclick="setLanguage('ar')">العربية</button>
+    </div>
+
+    <div class="products">
+
+        <!-- Product 1: Arduino Uno -->
+        <div class="product">
+            <img src="images/Arduino%20Uno.jpg" alt="Arduino Uno">
+            <h2 class="product-name" data-fr="Arduino Uno" data-ar="أردوينو أونو">Arduino Uno</h2>
+            <p class="product-price" data-fr="Prix: 150 MAD" data-ar="السعر: 150 درهم">Prix: 150 MAD</p>
+            <a href="https://wa.me/212600000000?text=I%20want%20to%20order%20Arduino%20Uno" class="order-button" 
+               data-fr="Commander" data-ar="اطلب الآن">Commander</a>
+        </div>
+
+        <!-- Product 2: Arduino Nano -->
+        <div class="product">
+            <img src="images/Arduino%20Nano.jpg" alt="Arduino Nano">
+            <h2 class="product-name" data-fr="Arduino Nano" data-ar="أردوينو نانو">Arduino Nano</h2>
+            <p class="product-price" data-fr="Prix: 100 MAD" data-ar="السعر: 100 درهم">Prix: 100 MAD</p>
+            <a href="https://wa.me/212600000000?text=I%20want%20to%20order%20Arduino%20Nano" class="order-button" 
+               data-fr="Commander" data-ar="اطلب الآن">Commander</a>
+        </div>
+
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            const body = document.body;
+            if (lang === 'ar') {
+                body.classList.add('arabic');
+            } else {
+                body.classList.remove('arabic');
+            }
+
+            document.querySelectorAll('[data-fr]').forEach(el => {
+                el.textContent = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-fr');
+            });
+        }
+    </script>
+
+</body>
+</html>
