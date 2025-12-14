@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+
+        .language-toggle {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .language-toggle button {
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+        }
+
+        .product img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h2 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+        }
+
+        .product p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .order-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .order-button:hover {
+            background-color: #1ebe57;
+        }
+
+        body.arabic {
+            direction: rtl;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="language-toggle">
+        <button onclick="setLanguage('fr')">Français</button>
+        <button onclick="setLanguage('ar')">العربية</button>
+    </div>
+
+    <div class="products">
+
+        <!-- Product 1: Arduino Uno -->
+        <div class="product">
+            <img src="images/Arduino Uno.jpg" alt="Arduino Uno">
+            <h2 class="product-name" data-fr="Arduino Uno" data-ar="أردوينو أونو">Arduino Uno</h2>
+            <p class="product-price" data-fr="Prix: 150 MAD" data-ar="السعر: 150 درهم">Prix: 150 MAD</p>
+            <a href="https://wa.me/212600000000?text=I%20want%20to%20order%20Arduino%20Uno" class="order-button" 
+               data-fr="Commander" data-ar="اطلب الآن">Commander</a>
+        </div>
+
+        <!-- Product 2: Arduino Nano -->
+        <div class="product">
+            <img src="images/Arduino Nano.jpg" alt="Arduino Nano">
+            <h2 class="product-name" data-fr="Arduino Nano" data-ar="أردوينو نانو">Arduino Nano</h2>
+            <p class="product-price" data-fr="Prix: 100 MAD" data-ar="السعر: 100 درهم">Prix: 100 MAD</p>
+            <a href="https://wa.me/212600000000?text=I%20want%20to%20order%20Arduino%20Nano" class="order-button" 
+               data-fr="Commander" data-ar="اطلب الآن">Commander</a>
+        </div>
+
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            const body = document.body;
+            if (lang === 'ar') {
+                body.classList.add('arabic');
+            } else {
+                body.classList.remove('arabic');
+            }
+
+            document.querySelectorAll('[data-fr]').forEach(el => {
+                el.textContent = lang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-fr');
+            });
+        }
+    </script>
+
+</body>
+</html>
